@@ -7,7 +7,7 @@ import SearchBookPage from "./Components/SearchBook/SearchBookPage";
 import BookCheckoutPage from "./Components/BookCheckout/BookCheckoutPage";
 import { useNavigate } from 'react-router-dom';
 import { octaConfig } from "./lib/octaConfig";
-import { OktaAuth ,toRelativeUrl} from "@okta/okta-auth-js";
+import { OktaAuth } from "@okta/okta-auth-js";
 import { LoginCallback, Security } from "@okta/okta-react";
 import LoginWidget from "./Auth/LoginWidget";
 
@@ -19,7 +19,7 @@ export const App = () => {
   }
   const history = useNavigate();
   const restoreOriginalUri=async(_oktaAuth,originaluri)=>{
-    history.replace(toRelativeUrl(originaluri || '/',window.location.original));
+    history(originaluri || '/',window.location.original);
   }
   return (
     <div className="d-flex flex-column min-vh-100">
